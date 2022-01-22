@@ -6,3 +6,4 @@ dist/
 temp/
 tmp/*
 !tmp/.gitkeep
+READ2.0.md
