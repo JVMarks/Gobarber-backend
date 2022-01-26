@@ -4,6 +4,10 @@ node_modules/
 build/
 dist/
 temp/
+READ2.0.md
+.env
+coverage
+ormconfig.json
+
 tmp/*
 !tmp/.gitkeep
-READ2.0.md

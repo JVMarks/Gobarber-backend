@@ -1,6 +1,8 @@
 import 'reflect-metadata';
+import 'dotenv/config';
 
 import express, { NextFunction, Response } from 'express';
+import { errors } from 'celebrate';
 import cors from 'cors';
 import 'express-async-errors';
 
@@ -17,6 +19,8 @@ app.use(cors());
 app.use(express.json());
 app.use('/files', express.static(uploadConfig.uploadsFolder));
 app.use(routes);
+
+app.use(errors());
 
 app.use((err: Error, request: Request, response: Response, _: NextFunction) => {
   if (err instanceof AppError) {
@@ -56,6 +60,8 @@ SERVE PARA AJUDAR O TIME
 ESLINT
 NÃO TEM DESCULPA TEM QUE USAR
 
+GIT
+git rm --chached ormconfig.json
 
 get-Process -Id (Get-NetTCPConnection -LocalPort 5432).OwningProcess
 netstat -a -b

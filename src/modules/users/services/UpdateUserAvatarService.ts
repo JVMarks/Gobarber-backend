@@ -1,9 +1,10 @@
 import { inject, injectable } from 'tsyringe';
 
 import AppError from '@shared/errors/AppError';
-import User from '@modules/users/infra/typeorm/entities/Users';
 import IStorageProvider from '@shared/container/providers/StorageProvider/model/IStorageProvider';
 import IUsersRepository from '../repositories/IUsersRepository';
+
+import User from '../infra/typeorm/entities/Users';
 
 interface IRequest {
   user_id: string;
@@ -20,18 +21,15 @@ class UpdateUserAvatarService {
     private storageProvider: IStorageProvider,
   ) {}
 
-  // constructor(private usersRepository: IUsersRepository) {}
-
   public async execute({ user_id, avatarFilename }: IRequest): Promise<User> {
     const user = await this.usersRepository.findById(user_id);
 
     if (!user) {
-      throw new AppError('Only authenticated users can change avatar.', 401);
+      throw new AppError(`Only authenticated users can change avatar.`, 401);
     }
 
     if (user.avatar) {
-      // Deletar avatar anterior
-      await this.storageProvider.deleteFile(user.avatar);
+      this.storageProvider.deleteFile(user.avatar);
     }
 
     const filename = await this.storageProvider.saveFile(avatarFilename);
