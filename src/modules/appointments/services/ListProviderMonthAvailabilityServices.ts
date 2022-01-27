@@ -53,7 +53,7 @@ class ListProviderMonthAvailabilityService {
       };
     });
 
-    console.log(eachDayArray);
+    // console.log(eachDayArray);
 
     return availability;
   }

@@ -66,12 +66,21 @@ git rm --chached ormconfig.json
 get-Process -Id (Get-NetTCPConnection -LocalPort 5432).OwningProcess
 netstat -a -b
 docker run --name gostack_postgres -e POSTGRES_PASSWORD=docker -p 5432:5432 -d prostgres
+docker run --name redis -p 6379:6379 -d -t redis:alpine
+docker run --name mongodb -p 27017:27017 -d -t mongo
 
 yarn dev:server
 docker start e7e9151d5174
+docker start mongodb
+docker start redis
+
+
 docker ps
 docker ps -a
 docker logs e7e9151d5174
 
 docker stop e7e9151d5174
+
+npm cache clean -f
+yarn test --clearCache
 */
