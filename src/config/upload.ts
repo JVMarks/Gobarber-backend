@@ -23,7 +23,7 @@ interface IUploadConfig {
 }
 
 export default {
-  driver: 'disk' || process.env.STORAGE_DRIVER,
+  driver: process.env.STORAGE_DRIVER,
 
   tmpFolder,
   uploadsFolder: path.resolve(tmpFolder, 'uploads'),
@@ -32,7 +32,7 @@ export default {
     storage: multer.diskStorage({
       destination: tmpFolder,
       filename(request, file, callback) {
-        const fileHash = crypto.randomBytes(10).toString('hex');
+        const fileHash = crypto.randomBytes(10).toString('HEX');
         const fileName = `${fileHash}-${file.originalname}`;
 
         return callback(null, fileName);

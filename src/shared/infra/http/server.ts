@@ -1,15 +1,14 @@
 import 'reflect-metadata';
 import 'dotenv/config';
 
-import express, { NextFunction, Response } from 'express';
-import { errors } from 'celebrate';
+import express, { Response, NextFunction, Request } from 'express';
 import cors from 'cors';
+import { errors } from 'celebrate';
 import 'express-async-errors';
 
 import uploadConfig from '@config/upload';
 import AppError from '@shared/errors/AppError';
 import rateLimiter from './middlewares/rateLimiter';
-
 import routes from './routes';
 
 import '@shared/infra/typeorm';

@@ -1,14 +1,34 @@
 {
-  "name": "primeiro-projeto-node",
+  "name": "gobarber-backend",
   "version": "1.0.0",
   "main": "index.js",
+  "description": "An app o manage appointments at a barbershop",
+  "author": "João Victor Marks de Farias Delgado",
   "license": "MIT",
+  "homepage": "https://github.com/JVMarks/Gobarber-backend#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JVMarks/Gobarber-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/JVMarks/Gobarber-backend/issues"
+  },
+  "engines": {
+    "npm": ">= 7.24.0",
+    "node": ">= 14.17.1"
+  },
   "scripts": {
-    "build": "tsc",
+    "build": "babel src --extensions \".js,.ts\" --out-dir dist --copy-files",
     "dev:server": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules src/shared/infra/http/server.ts",
-    "start": "ts-node src/shared/infra/http/server.ts",
+    "start": "ts-node -r tsconfig-paths/register src/shared/infra/http/server.ts",
     "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "test": "jest"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true"
+    }
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.2",
@@ -61,5 +81,10 @@
     "tsyringe": "^4.4.0",
     "typeorm": "0.2.27",
     "uuidv4": "^6.2.12"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
