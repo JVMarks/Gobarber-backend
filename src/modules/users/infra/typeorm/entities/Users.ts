@@ -1,4 +1,3 @@
-import { Exclude, Expose } from 'class-transformer';
 import {
   Entity,
   Column,
@@ -6,6 +5,8 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
 } from 'typeorm';
+
+import { Exclude, Expose } from 'class-transformer';
 import uploadConfig from '@config/upload';
 
 // KISS - KEEP IT SIMPLE E STUPID

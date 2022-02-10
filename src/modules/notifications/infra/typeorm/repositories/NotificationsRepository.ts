@@ -1,7 +1,7 @@
 import { getMongoRepository, MongoRepository } from 'typeorm';
 
-import ICreateNotificationDTO from '@modules/notifications/dtos/ICreateNotificationDTO';
 import INotificationRepository from '@modules/notifications/repositories/INotificationRepository';
+import ICreateNotificationDTO from '@modules/notifications/dtos/ICreateNotificationDTO';
 
 import Notification from '../schemas/Notification';
 
@@ -22,6 +22,7 @@ class NotificationsRepository implements INotificationRepository {
     });
 
     await this.ormRepository.save(notification);
+
     return notification;
   }
 }

@@ -4,7 +4,6 @@ import { celebrate, Segments, Joi } from 'celebrate';
 import SessionsController from '../controllers/SessionsController';
 
 const SessionsRouter = Router();
-
 const sessionsController = new SessionsController();
 
 SessionsRouter.post(

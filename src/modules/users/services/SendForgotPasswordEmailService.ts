@@ -10,6 +10,7 @@ import IUserTokensRepository from '../repositories/IUserTokensRepository';
 interface IRequest {
   email: string;
 }
+
 @injectable()
 class SendForgotPasswordEmailService {
   constructor(

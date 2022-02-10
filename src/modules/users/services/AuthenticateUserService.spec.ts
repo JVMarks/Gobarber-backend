@@ -12,6 +12,7 @@ describe('AuthenticateUser', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
     fakeHashProvider = new FakeHashProvider();
+
     authenticateUser = new AuthenticateUserService(
       fakeUsersRepository,
       fakeHashProvider,

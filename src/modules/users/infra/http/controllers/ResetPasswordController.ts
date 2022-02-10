@@ -10,8 +10,8 @@ export default class SessionsController {
     const resetPasswordServices = container.resolve(ResetPasswordServices);
 
     await resetPasswordServices.execute({
-      password,
       token,
+      password,
     });
 
     return response.status(204).json();

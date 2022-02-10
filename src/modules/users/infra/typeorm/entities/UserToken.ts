@@ -10,7 +10,7 @@ import {
 // KISS - KEEP IT SIMPLE E STUPID
 
 @Entity('user_tokens')
-class User {
+class UserTokens {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
@@ -28,4 +28,4 @@ class User {
   updated_at: Date;
 }
 
-export default User;
+export default UserTokens;
