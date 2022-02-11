@@ -102,6 +102,3 @@ AWS S3 = CDN (Content Delivery Network)
 Escala Vertical - Aumenta os recursos
 Escala horizontal - Criar um novo servidor(distribuição de carga)
 
-
-# Brote Force
-

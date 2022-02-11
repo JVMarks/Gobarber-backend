@@ -2,6 +2,7 @@ import { Router } from 'express';
 import { celebrate, Joi, Segments } from 'celebrate';
 
 import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated';
+
 import ProvidersController from '../controllers/ProvidersController';
 import ProviderDayAvaliabilityController from '../controllers/ProviderDayAvaliabilityController';
 import ProviderMothAvaliabilityController from '../controllers/ProviderMothAvaliabilityController';

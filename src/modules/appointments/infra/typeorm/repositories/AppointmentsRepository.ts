@@ -2,9 +2,9 @@ import { getRepository, Raw, Repository } from 'typeorm';
 
 import IAppointmentsRepository from '@modules/appointments/repositories/IAppointmentsRepository';
 import ICreateAppointmentDTO from '@modules/appointments/dtos/ICreateAppointmentDTO';
-
 import IFindAllInMonthFromProviderDTO from '@modules/appointments/dtos/IFindAllInMonthFromProviderDTO';
 import IFindAllInDayFromProviderDTO from '@modules/appointments/dtos/IFindAllInDayFromProviderDTO';
+
 import Appointment from '../entities/Appointmen';
 
 class AppointmentsRepository implements IAppointmentsRepository {
@@ -40,6 +40,7 @@ class AppointmentsRepository implements IAppointmentsRepository {
         ),
       },
     });
+
     return appointments;
   }
 
@@ -51,6 +52,7 @@ class AppointmentsRepository implements IAppointmentsRepository {
   }: IFindAllInDayFromProviderDTO): Promise<Appointment[]> {
     const parsedDay = String(day).padStart(2, '0');
     const parsedMonth = String(month).padStart(2, '0');
+
     const appointments = await this.ormRepository.find({
       where: {
         provider_id,
@@ -61,6 +63,7 @@ class AppointmentsRepository implements IAppointmentsRepository {
       },
       relations: ['user'],
     });
+
     return appointments;
   }
 
@@ -76,7 +79,9 @@ class AppointmentsRepository implements IAppointmentsRepository {
     });
 
     await this.ormRepository.save(appointment);
+
     return appointment;
   }
 }
+
 export default AppointmentsRepository;

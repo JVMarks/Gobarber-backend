@@ -10,6 +10,7 @@ describe('UpdateUserAvatar', () => {
   beforeEach(() => {
     fakeUsersRepository = new FakeUsersRepository();
     fakeCacheProvider = new FakeCacheProvider();
+
     listProvider = new ListProviderServices(
       fakeUsersRepository,
       fakeCacheProvider,

@@ -1,9 +1,9 @@
 import { inject, injectable } from 'tsyringe';
 
 import ICacheProvider from '@shared/container/providers/CacheProvider/models/ICacheProvider';
-
 import { classToClass } from 'class-transformer';
 import IAppointmentsRepository from '../repositories/IAppointmentsRepository';
+
 import Appointment from '../infra/typeorm/entities/Appointmen';
 
 interface IRequest {

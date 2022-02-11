@@ -17,32 +17,30 @@ describe('ListProviderAppointments', () => {
     );
   });
 
-  it('should be able to list appointments on a specific day', async () => {
-    const appointmen1 = await fakeAppointmentRepository.create({
+  it('should be able to list the appointments on a specific day', async () => {
+    const appointment1 = await fakeAppointmentRepository.create({
       provider_id: 'provider',
       user_id: 'user',
-      date: new Date(2020, 4, 20, 8, 0, 0),
+      date: new Date(2020, 4, 20, 14, 0, 0),
     });
 
-    const appointmen2 = await fakeAppointmentRepository.create({
+    const appointment2 = await fakeAppointmentRepository.create({
       provider_id: 'provider',
       user_id: 'user',
-      date: new Date(2020, 4, 20, 9, 0, 0),
+      date: new Date(2020, 4, 20, 15, 0, 0),
     });
 
-    const appointmen3 = await fakeAppointmentRepository.create({
-      provider_id: 'provider',
-      user_id: 'user',
-      date: new Date(2020, 4, 20, 10, 0, 0),
+    jest.spyOn(Date, 'now').mockImplementationOnce(() => {
+      return new Date(2020, 4, 20, 11).getTime();
     });
 
-    const appointmens = await listProviderAppointments.execute({
+    const appointments = await listProviderAppointments.execute({
       provider_id: 'provider',
+      day: 20,
       year: 2020,
       month: 5,
-      day: 20,
     });
 
-    expect(appointmens).toEqual([appointmen1, appointmen2, appointmen3]);
+    expect(appointments).toEqual([appointment1, appointment2]);
   });
 });
