@@ -81,7 +81,7 @@ Para copiar o projeto, utilize os comandos:
 
 ```bash
   # Clonar o repositório
-  ❯ git clone https://github.com/jerp86/iniciando-back-end.git
+  ❯ git clone https://github.com/JVMarks/Gobarber-backend.git
 
   # Entrar no diretório
   ❯ cd iniciando-back-end

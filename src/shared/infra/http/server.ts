@@ -85,4 +85,10 @@ docker stop e7e9151d5174
 
 npm cache clean -f
 yarn test --clearCache
+
+
+netstat -a -b
+Get-NetTCPConnection
+Get-NetTCPConnection -State Listen | Select-Object -Property LocalPort, State | Sort-Object LocalPort
+Get-NetTCPConnection -State Listen | Select-Object -Property LocalPort, State
 */
